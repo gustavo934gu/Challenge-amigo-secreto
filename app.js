@@ -12,7 +12,7 @@ function receberNomes() {
 
 function adicionarAmigo() {
     receberNomes();
-    document.getElementById("listaAmigos").innerHTML = amigos.join(", ");
+    document.getElementById("listaAmigos").innerHTML = amigos.map(nome => `<li>${nome}</li>`).join("");
     document.querySelector("input").value = "";
 }
 
@@ -27,7 +27,8 @@ function sortearAmigo() {
         alert("Adicione pelo menos dois amigos.");
         return;
     }
-
+    document.getElementById("listaAmigos").innerHTML = "";
     const amigo = gerarNomeAmigoSecreto();
     document.getElementById("resultado").innerHTML = `Seu amigo secreto é: <strong>${amigo}</strong>`;
+
 }
